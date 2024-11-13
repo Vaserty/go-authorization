@@ -3,7 +3,7 @@ package customtypes
 type Environment string
 
 const (
-	Development Environment = "development"
-	Test        Environment = "test"
-	Production  Environment = "production"
+	EnvDev     Environment = "development"
+	EnvTest       Environment = "test"
+	EnvProd Environment = "production"
 )

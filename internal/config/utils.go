@@ -9,7 +9,7 @@ import (
 func GetEnvironment() customtypes.Environment {
 	environment := os.Getenv("ENVIRONMENT")
 	if environment == "" {
-		return customtypes.Development
+		return customtypes.EnvDev
 	}
 	return customtypes.Environment(environment)
 }
