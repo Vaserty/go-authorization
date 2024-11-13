@@ -42,11 +42,11 @@ func main() {
 	logger.Infof("Running in environment: '%v'", environment)
 	buildedConfig, err := provideConfig(injector, environment)
 	if err != nil {
-		logger.Fatalf("Failed to initialize configuration: %v", err)
+		logger.Panicf("Failed to initialize configuration: %v", err)
 	}
 
 	if err := config.ConfigLogger(buildedConfig); err != nil {
-		logger.Fatalf("Failed to configure logger: %v", err)
+		logger.Panicf("Failed to configure logger: %v", err)
 	}
 	logger.Info("Logger configured successfully.")
 	logger.Infof(
