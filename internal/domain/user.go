@@ -14,6 +14,7 @@ type UserAggregate struct {
 	Username              string    `validate:"required,min=2,max=50"`
 	Email                 string    `validate:"required,email"`
 	isVerified            bool
+	verifiedAt            *time.Time
 	lastPasswordChangedAt *time.Time
 	registeredAt          time.Time `validate:"required"`
 	hashedPassword        []byte    `validate:"required"`
@@ -81,6 +82,8 @@ func (u *UserAggregate) Verify() error {
 	}
 
 	u.isVerified = true
+	now := time.Now().UTC()
+	u.verifiedAt = &now
 	return nil
 }
 
