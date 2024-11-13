@@ -48,7 +48,7 @@ func main() {
 	if err := config.ConfigLogger(buildedConfig); err != nil {
 		logger.Fatalf("Failed to configure logger: %v", err)
 	}
-
+	logger.Info("Logger configured successfully.")
 	logger.Infof(
 		"Application name: '%v', Application version: '%v'",
 		buildedConfig.AppInfo.Name,

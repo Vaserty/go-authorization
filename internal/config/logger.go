@@ -12,6 +12,5 @@ func ConfigLogger(config *Config) error {
 		return fmt.Errorf("error parsing log level: %w", err)
 	}
 	logger.SetLevel(level)
-	logger.Info("Logger configured successfully.")
 	return nil
 }
