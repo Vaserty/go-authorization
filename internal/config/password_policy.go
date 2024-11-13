@@ -9,15 +9,11 @@ type PasswordPolicy struct {
 
 type signCount struct {
 	UpperCaseCount int
-	lowerCaseCount int
-	digitCount int
+	LowerCaseCount int
+	DigitCount int
 }
 
-func (p PasswordPolicy) ValidatePassword(password string) error {
-    if len(password) < p.minLength {
-        return errors.New("password is too short")
-    }
-
+func (p PasswordPolicy) charTypeCounts (password string) error {
     var upperCaseCount, lowerCaseCount, digitCount int
 
     for _, char := range password {
@@ -30,6 +26,16 @@ func (p PasswordPolicy) ValidatePassword(password string) error {
             digitCount++
     	}
 	}
+
+}
+
+
+func (p PasswordPolicy) ValidatePassword(password string) error {
+    if len(password) < p.minLength {
+        return errors.New("password is too short")
+    }
+
+
 
     if uppercaseCount < p.minUppercase {
         return errors.New("password must contain more uppercase letters")
