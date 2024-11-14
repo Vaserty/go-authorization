@@ -28,16 +28,16 @@ func charTypeCounts(password string) SignCount {
 	return counts
 }
 
-func generateRandomUppercase(uppercaseCount int) string {
+func generateRandomUppercase(upperCaseCount int) string {
 	uppercaseCharset := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-	if uppercaseCount <= 0 {
+	if upperCaseCount <= 0 {
 		return ""
 	}
 
-	result := make([]byte, uppercaseCount)
+	result := make([]byte, upperCaseCount)
 
-	for i := 0; i < uppercaseCount; i++ {
+	for i := 0; i < upperCaseCount; i++ {
 		index := rand.Intn(len(uppercaseCharset))
 		result[i] = uppercaseCharset[index]
 	}
