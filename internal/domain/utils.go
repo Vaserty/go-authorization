@@ -12,24 +12,20 @@ type SignCount struct {
 }
 
 func charTypeCounts(password string) SignCount {
-	var upperCaseCount, lowerCaseCount, digitCount int
+	counts := SignCount{}
 
 	for _, char := range password {
 		switch {
 		case unicode.IsUpper(char):
-			upperCaseCount++
+			counts.upperCaseCount++
 		case unicode.IsLower(char):
-			lowerCaseCount++
+			counts.lowerCaseCount++
 		case unicode.IsDigit(char):
-			digitCount++
+			counts.digitCount++
 		}
 	}
 
-	return SignCount{
-		upperCaseCount: upperCaseCount,
-		lowerCaseCount: lowerCaseCount,
-		digitCount:     digitCount,
-	}
+	return counts
 }
 
 func generateRandomUppercase(numUpper int) string {
