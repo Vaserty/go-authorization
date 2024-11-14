@@ -30,7 +30,7 @@ func (u *UserAggregate) Validate() error {
 	return validate.Struct(u)
 }
 
-func (u *UserAggregate) ChangedEmail(newEmail string) error {
+func (u *UserAggregate) ChangeEmail(newEmail string) error {
 	validate := validator.New()
 
 	if err := validate.Var(newEmail, "required,email"); err != nil {
