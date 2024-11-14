@@ -26,8 +26,8 @@ func (u *UserAggregate) GetIdentifier() uuid.UUID {
 }
 
 func (u *UserAggregate) Validate() error {
-	valdidate := validator.New()
-	return valdidate.Struct(u)
+	validate := validator.New()
+	return validate.Struct(u)
 }
 
 func (u *UserAggregate) ChangedEmail(newEmail string) error {
